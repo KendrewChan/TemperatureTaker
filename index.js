@@ -39,8 +39,10 @@ async function completeForm(page) {
 	// familySymptomsFlag
 	await page.click('input[name=familySymptomsFlag][value=N]');
 	// Healthy range of temperatures x: 36.1 <= x <= 37.2
+	const ranRange =  Math.floor(Math.random()*10)/10;
 	const temp = 36.1 + Math.floor(Math.random()*10)/10; // This gives a temperature ranging from 36.1 to 37.1
-	page.type('input[name=temperature]', temp.toString());
+	// Maybe can just try getting the first 3 characters? with regex or something 
+	await page.type('input[name=temperature]', temp.toString());
 
 	await clickNavigate(page, 'input[name=Save]');
 }
