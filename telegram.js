@@ -40,7 +40,6 @@ const Telegram = {
 							const [command, netid, pass] = commandArr;
 							DatabaseManager.upsertUser(chatID, netid, pass, (err) => {
 								if (err) {
-									console.log(err);
 									Telegram.sendMessage(chatID, "Sorry! An error has occurred on the database :(");
 								} else {
 									Telegram.sendMessage(chatID, "Your details have been encrypted and saved! :)");
