@@ -30,7 +30,7 @@ const Telegram = {
 				const commandArr = textMsg.split(" ");
 				const command = commandArr[0];
 				switch (command) {
-					case "/help":
+					case "/start":
 						Telegram.sendMessage(chatID, "Welcome! Type `/register NETID PASS` to login and `/setTemp your_temp` to set ur temperature!");
 						break;
 					case "/register":
@@ -47,7 +47,7 @@ const Telegram = {
 							});
 						}
 						break;
-					case "/setTemp":
+					case "/settemp":
 						if (commandArr.length != 2) {
 							Telegram.isInvalidCommand(chatID);
 						} else {
@@ -92,7 +92,4 @@ const Telegram = {
 	}
 }
 
-// getUpdates(checkCommands);
-// Sends updates based upon commands by user
-// Get TelegramID: https://t.me/userinfobot
 module.exports = Telegram;

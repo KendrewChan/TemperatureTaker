@@ -18,8 +18,7 @@ app.use(bodyParser.json());
 app.post('/', (req, res) => {
 	const { message } = req.body;
 	Telegram.checkCommands(null, message);
-	// res.sendStatus(200);
-	res.send("webhooker");
+	res.sendStatus(200);
 });
 
 

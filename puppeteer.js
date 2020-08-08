@@ -35,11 +35,7 @@ const pageHandler = {
 	},
 	submitTemp: async (page, temp) => {
 		await page.click('input[name=symptomsFlag][value=N]');
-		// familySymptomsFlag
 		await page.click('input[name=familySymptomsFlag][value=N]');
-		// Healthy range of temperatures x: 36.1 <= x <= 37.2
-		// const ranRange =  Math.floor(Math.random()*10)/10;
-		// const temp = 36.1 + ranRange; // This gives a temperature ranging from 36.1 to 37.1
 
 		await page.type('input[name=temperature]', temp);
 	
