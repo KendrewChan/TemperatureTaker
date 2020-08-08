@@ -5,7 +5,7 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
 
 // Change this to open / close browser
-const closeBrowser = false; 
+const closeBrowser = true; 
 
 async function clickNavigate(page, selector) {
 	await Promise.all([
