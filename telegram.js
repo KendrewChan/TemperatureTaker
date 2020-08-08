@@ -59,7 +59,6 @@ const Telegram = {
 										Telegram.sendMessage(chatID, "Your temperature has been set! :)");
 									})
 									.catch(err => {
-										console.log(err);
 										Telegram.sendMessage(chatID, "Sorry! An error has occurred while scraping :(");
 									})
 							})

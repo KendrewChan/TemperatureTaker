@@ -15,6 +15,10 @@ app.use(
 );
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+	res.send("kthxbye");
+})
+
 app.post('/webhooks', (req, res) => {
 	const { message } = req.body;
 	Telegram.checkCommands(null, message);
