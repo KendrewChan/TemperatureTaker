@@ -27,7 +27,10 @@ const pageHandler = {
     const page = await browser.newPage();
     await page.goto("https://myaces.nus.edu.sg/htd");
 
-    return page;
+    return {
+      browser: browser,
+      page: page
+    };
   },
   nusLogin: async (page, id, pass) => {
     await page.type("input[type=email]", id);
@@ -44,11 +47,12 @@ const pageHandler = {
     await clickNavigate(page, "input[name=Save]");
   },
   scrapeData: async (id, pass, temp) => {
-    const page = await pageHandler.getPage();
+    const {browser, page} = await pageHandler.getPage();
     await pageHandler.nusLogin(page, id, pass);
     await pageHandler.submitTemp(page, temp);
 
-    return page;
+    await browser.close();
+    return page; // This is kinda redundant at this point since browser already closed
   },
 };
 
