@@ -58,12 +58,12 @@ const Telegram = {
                 if (err) {
                   Telegram.sendMessage(
                     chatID,
-                    "Sorry! An error has occurred on the database :("
+                    "Sorry! An error has occurred on the database 😰"
                   );
                 } else {
                   Telegram.sendMessage(
                     chatID,
-                    "Your details have been encrypted and saved! :)"
+                    "Your details have been encrypted and saved! 😆"
                   );
                 }
               });
@@ -85,13 +85,13 @@ const Telegram = {
                     .then((page) => {
                       Telegram.sendMessage(
                         chatID,
-                        "Your temperature has been set! :)"
+                        `Your temperature of ${temperature}°C has been set 😆 `
                       );
                     })
                     .catch((err) => {
                       Telegram.sendMessage(
                         chatID,
-                        "Sorry! An error has occurred while scraping :("
+                        "Sorry! An error has occurred while scraping 🤒 Please try again!"
                       );
                     });
                 }
@@ -114,27 +114,29 @@ const Telegram = {
             Telegram.isInvalidCommand(chatID);
             break;
         }
-      } else if (
-        message.entities != undefined &&
-        message.sticker.file_unique_id === "AgADRgADOtAdJw"
-      ) {
+      } else if (message.sticker.file_unique_id === "AgADRgADOtAdJw") {
+        const chatID = message.chat.id;
         Telegram.sendSticker(
           chatID,
           "CAACAgIAAxkBAAIBcF8tUnMXejvZ1MNPchnlA2SMCoyRAAIFAAN1UIETZmBnin0s48QaBA"
         );
-        const temperature = 36.1 + Math.floor(Math.random() * 10) / 10;
+        const temperature = (
+          36.1 +
+          Math.floor(Math.random() * 10) / 10
+        ).toString();
         DatabaseManager.getUser(chatID, (err, netID, password) => {
           Puppeteer.scrapeData(netID, password, temperature)
             .then((page) => {
               Telegram.sendMessage(
                 chatID,
-                `Temperature of ${temperature} has been successfuly set! :)`
+                `Your temperature of ${temperature}°C has been set! 😆`
               );
             })
             .catch((err) => {
+              console.log(err);
               Telegram.sendMessage(
                 chatID,
-                "Sorry! An error has occurred while scraping :("
+                "Sorry! An error has occurred while scraping 🤒 Please try again!"
               );
             });
         });

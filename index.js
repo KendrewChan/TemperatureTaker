@@ -1,6 +1,6 @@
-require('dotenv').config();
-var express = require('express');
-var bodyParser = require('body-parser');
+require("dotenv").config();
+var express = require("express");
+var bodyParser = require("body-parser");
 
 const Telegram = require("./telegram");
 
@@ -15,14 +15,11 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.post('/', (req, res) => {
-	const { message } = req.body;
-	Telegram.checkCommands(null, message);
-	res.sendStatus(200);
+app.post("/", (req, res) => {
+  const { message } = req.body;
+  Telegram.checkCommands(null, message);
+  res.sendStatus(200);
 });
 
-
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
-app.listen(port, () =>
-  console.log(`Server up and running on port ${port}!`)
-);
+app.listen(port, () => console.log(`Server up and running on port ${port}!`));
