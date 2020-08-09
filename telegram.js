@@ -91,7 +91,7 @@ const Telegram = {
                     .catch((err) => {
                       Telegram.sendMessage(
                         chatID,
-                        "Sorry! An error has occurred while scraping 🤒 Please try again!"
+                        "Sorry! An error has occurred while scraping 🤒"
                       );
                     });
                 }
@@ -138,7 +138,7 @@ const Telegram = {
               console.log(err);
               Telegram.sendMessage(
                 chatID,
-                "Sorry! An error has occurred while scraping 🤒 Please try again!"
+                "Sorry! An error has occurred while scraping 🤒"
               );
             });
         });

@@ -20,8 +20,8 @@ const pageHandler = {
       headless: closeBrowser,
       args: [
         "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
+        // "--disable-setuid-sandbox",
+        // "--disable-dev-shm-usage",
       ],
     });
     const page = await browser.newPage();
