@@ -114,7 +114,10 @@ const Telegram = {
             Telegram.isInvalidCommand(chatID);
             break;
         }
-      } else if (message.sticker.file_unique_id === "AgADRgADOtAdJw") {
+      } else if (
+        message.sticker.file_unique_id === "AgADRgADOtAdJw" ||
+        message.sticker.file_unique_id === "AgADLQADbWdjGw"
+      ) {
         const chatID = message.chat.id;
         Telegram.sendSticker(
           chatID,
