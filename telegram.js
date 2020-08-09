@@ -120,10 +120,9 @@ const Telegram = {
           chatID,
           "CAACAgIAAxkBAAIBcF8tUnMXejvZ1MNPchnlA2SMCoyRAAIFAAN1UIETZmBnin0s48QaBA"
         );
-        const temperature = (
-          36.1 +
-          Math.floor(Math.random() * 10) / 10
-        ).toString();
+        const temperature = (36.1 + Math.floor(Math.random() * 10) / 10)
+          .toFixed(1)
+          .toString();
         DatabaseManager.getUser(chatID, (err, netID, password) => {
           Puppeteer.scrapeData(netID, password, temperature)
             .then((page) => {
