@@ -18,7 +18,7 @@ const pageHandler = {
   getPage: async () => {
     const browser = await puppeteer.launch({
       headless: closeBrowser,
-      args: ["--no-sandbox"],
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
     await page.goto("https://myaces.nus.edu.sg/htd");
