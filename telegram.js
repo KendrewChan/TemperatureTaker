@@ -101,15 +101,9 @@ const Telegram = {
           case "/help":
             Telegram.sendMessage(
               chatID,
-              "Example register: /register nusstu\\E1234567A Password123"
+              "E.g. `/register nusstu\\E1234567A Password123` and `/settemp 36.5`"
             );
-            Telegram.sendMessage(
-              chatID,
-              "Example set temperature: /settemp 36.5"
-            );
-
             break;
-
           default:
             Telegram.isInvalidCommand(chatID);
             break;
@@ -135,7 +129,6 @@ const Telegram = {
               );
             })
             .catch((err) => {
-              console.log(err);
               Telegram.sendMessage(
                 chatID,
                 "Sorry! An error has occurred while scraping 🤒"
