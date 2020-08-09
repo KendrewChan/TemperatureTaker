@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 
 const Telegram = require("./telegram");
 
-Telegram.getUpdates(Telegram.checkCommands);
+// Telegram.getUpdates(Telegram.checkCommands);
 
 const app = express();
 
