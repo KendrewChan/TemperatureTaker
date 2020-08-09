@@ -98,6 +98,18 @@ const Telegram = {
               });
             }
             break;
+          case "/help":
+            Telegram.sendMessage(
+              chatID,
+              "Example register: /register nusstu\\E1234567A Password123"
+            );
+            Telegram.sendMessage(
+              chatID,
+              "Example set temperature: /settemp 36.5"
+            );
+
+            break;
+
           default:
             Telegram.isInvalidCommand(chatID);
             break;
