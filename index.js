@@ -17,8 +17,8 @@ if (production) {
     app.use(bodyParser.json());
 
     app.post("/", (req, res) => {
-        const { message } = req.body;
-        Telegram.checkCommands(null, message);
+        const teleData = req.body;
+        Telegram.checkCommands(null, teleData);
         res.sendStatus(200);
     });
 

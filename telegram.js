@@ -160,25 +160,6 @@ const Telegram = {
                             },
                         ],
                     });
-
-                    // const temperature = (36.1 + Math.floor(Math.random() * 10) / 10)
-                    //     .toFixed(1)
-                    //     .toString();
-                    // DatabaseManager.getUser(chatID, (err, data) => {
-                    //     Puppeteer.scrapeData(data.netID, data.password, temperature)
-                    //         .then((page) => {
-                    //             Telegram.sendMessage(
-                    //                 chatID,
-                    //                 `Your temperature of ${temperature}°C has been set! 😆`
-                    //             );
-                    //         })
-                    //         .catch((err) => {
-                    //             Telegram.sendMessage(
-                    //                 chatID,
-                    //                 "Sorry! An error has occurred while scraping 🤒"
-                    //             );
-                    //         });
-                    // });
                 }
             }
             if (callbackQuery != undefined) {
