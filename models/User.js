@@ -3,19 +3,23 @@ const Schema = mongoose.Schema;
 
 // Blueprint of what a message would look like in our DB.
 const UserSchema = new Schema({
-  telegramID: {
-	  type: String
-  }, 
-  netID: {
-	  type: String
-  }, 
-  password: {
-	  type: Object
-	  // This is encrypted
-  },
-  key: {
-	  type: Buffer
-  }
+    telegramID: {
+        type: String,
+    },
+    netID: {
+        type: String,
+    },
+    password: {
+        type: Object,
+        // This is encrypted
+    },
+    key: {
+        type: Buffer,
+    },
+    isAuto: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 // Makes a model of the above schema.
