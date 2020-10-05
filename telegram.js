@@ -173,7 +173,6 @@ const Telegram = {
                             Telegram.sendMessage("Alright! Have a nice day!");
                             break;
                         case "1":
-                            console.log(teleID);
                             DatabaseManager.upsertUser(
                                 {
                                     telegramID: teleID,
@@ -181,6 +180,7 @@ const Telegram = {
                                 },
                                 (err) => {
                                     if (err) {
+                                        console.log(err);
                                         Telegram.sendMessage(
                                             teleID,
                                             "Sorry! An error has occurred on the database 😰"
