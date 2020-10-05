@@ -187,7 +187,7 @@ const Telegram = {
                                         );
                                     } else {
                                         Telegram.sendSticker(
-                                            chatID,
+                                            teleID,
                                             "CAACAgIAAxkBAAIBcF8tUnMXejvZ1MNPchnlA2SMCoyRAAIFAAN1UIETZmBnin0s48QaBA"
                                         );
                                         Telegram.sendMessage(

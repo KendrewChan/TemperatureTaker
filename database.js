@@ -27,7 +27,7 @@ const DatabaseManager = {
         const password = data.password;
         const isAuto = data.isAuto;
 
-        User.findOne({ telegramID: data.telegramID })
+        User.findOne({ telegramID: telegramID })
             .then((user) => {
                 const key = password === undefined ? user.key : Crypto.getKey();
                 const hash =
