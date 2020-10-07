@@ -152,7 +152,7 @@ const Telegram = {
                             {
                                 text: "Yes",
                                 callback_data: 1,
-                                // Send these data as enums later on
+                                // TODO: Change these to enums
                             },
                             {
                                 text: "No",
@@ -170,7 +170,26 @@ const Telegram = {
                     const callbackData = callbackQuery.data;
                     switch (callbackData) {
                         case "0":
-                            Telegram.sendMessage("Alright! Have a nice day!");
+                            DatabaseManager.upsertUser(
+                                {
+                                    telegramID: teleID,
+                                    isAuto: false,
+                                },
+                                (err) => {
+                                    if (err) {
+                                        console.log(err);
+                                        Telegram.sendMessage(
+                                            teleID,
+                                            "Sorry! An error has occurred on the database 😰"
+                                        );
+                                    } else {
+                                        Telegram.sendMessage(
+                                            teleID,
+                                            "Alright, automation disabled! Have a nice day!"
+                                        );
+                                    }
+                                }
+                            );
                             break;
                         case "1":
                             DatabaseManager.upsertUser(
