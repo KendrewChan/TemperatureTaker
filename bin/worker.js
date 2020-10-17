@@ -28,14 +28,16 @@ const puppetScrape = (teleID, netID, password, morning, callback) => {
         });
 };
 
-DatabaseManager.getAutoUsers((err, data) => {
+require("dotenv").config();
+
+const teleID = process.env.TELEID
+
+DatabaseManager.getUser(teleID, (err, data) => {
     if (err) {
         console.log(err);
     } else {
-        const teleID = data.telegramID;
         const netID = data.netID;
         const password = data.password;
-
         puppetScrape(teleID, netID, password, true, (err, page) => {
             if (err) {
                 console.log(err);
@@ -48,4 +50,27 @@ DatabaseManager.getAutoUsers((err, data) => {
             }
         });
     }
-});
+})
+
+
+// DatabaseManager.getAutoUsers((err, data) => {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         const teleID = data.telegramID;
+//         const netID = data.netID;
+//         const password = data.password;
+
+//         puppetScrape(teleID, netID, password, true, (err, page) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 puppetScrape(teleID, netID, password, false, (err, page) => {
+//                     if (err) {
+//                         console.log(err);
+//                     }
+//                 });
+//             }
+//         });
+//     }
+// });
